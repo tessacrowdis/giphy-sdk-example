@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { GiphyService } from './services/giphy.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'giphy-sdk-example';
+  apiKey: string;
+  gifSearch: string;
+  gifSuggest: string;
+  searchResults: string;
+  termSuggestionResults: string;
+
+  constructor(private _giphy: GiphyService) {}
+
+  public termSuggestion() {
+    this.termSuggestionResults = this._giphy.termSuggestions(this.gifSuggest, this.apiKey);
+  }
+
+  public search() {
+    this.searchResults = this._giphy.search(this.gifSearch, this.apiKey);
+  }
+
 }

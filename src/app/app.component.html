@@ -1,5 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div id="container">
+  <header>
+    <h1>Place your Giphy API key in the box before continuing:</h1>
+    <input [(ngModel)]="apiKey" type=text>
+  </header>
+  <h1>"search" SDK Result: {{searchResults}}</h1>
+  <section>
+    <input [(ngModel)]="gifSearch" type=text>
+    <button (click)=search()>Run</button>
+  </section>
+  <h1>"termSuggestion" SDK call Result: {{termSuggestionResults}}</h1>
+  <section>
+    <input [(ngModel)]="gifSuggest" type=text>
+    <button (click)=termSuggestion()>Run</button>
+    <div>
+
+    </div>
+  </section>
+
+</div>
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -17,4 +37,4 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
-
+ -->
